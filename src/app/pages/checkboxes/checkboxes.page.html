@@ -1,0 +1,26 @@
+<app-header [title]="pageTitle"></app-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Etiqueta</ion-label>
+      <ion-checkbox color="primary"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item
+      *ngFor="let item of data"
+      (click)="onClick(item)"
+    >
+      <ion-label>{{item.name}}</ion-label>
+      <ion-checkbox
+        slot="end"
+        [(ngModel)]="item.selected"
+        [color]="item.name">
+      </ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

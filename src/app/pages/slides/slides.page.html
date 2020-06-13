@@ -1,0 +1,35 @@
+<!-- <app-header title="Slides"></app-header> -->
+<ion-header [ngClass]="hideAvatar">
+  <ion-toolbar>
+    <img src="/assets/slides/user-6.svg" class="avatar animated fadeIn">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="true" class="slide-full">
+
+    <ion-slide *ngFor="let slide of slidesList">
+      <ion-card mode="ios">
+        <img [src]="slide.img" class="slide-image">
+        <ion-card-header>
+          <ion-card-title>{{ slide.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ slide.desc}}
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-button expand="full"
+                  color="primary"
+                  fill="clear"
+                  (click)="onClick()">
+        ¡¡¡ Comenzar !!!
+      </ion-button>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

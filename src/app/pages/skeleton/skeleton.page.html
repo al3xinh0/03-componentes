@@ -1,0 +1,51 @@
+<app-header title="Skeleton Text"></app-header>
+
+<ion-toolbar>
+  <ion-segment (ionChange)="segmentChanged($event)" color="tertiary" value="todos">
+    <ion-segment-button value="todos">
+      <ion-label>Todos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="DC Comics">
+      <ion-label>DC Comics</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Marvel Comics">
+      <ion-label>Marvel Comics</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+<ion-content>
+
+  <!-- ESTRUCTURA DEL ESQUELETO DE TEXTO SIMILAR A LA INFORMACION QUE SE VA A MOSTRAR -->
+  <ion-list *ngIf="(superheros | async) === null">
+    <ion-item *ngFor="let item of skeletonTextArray"
+              class="animated flash slow infinite">
+      <ion-label>
+        <h3>
+          <ion-skeleton-text width="70%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text width="100%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+      <ion-label slot="end" class="ion-text-right">
+        <ion-skeleton-text width="40px"></ion-skeleton-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- INFORMACION DEL SERVICIO -->
+  <ion-list>
+    <ion-item *ngFor="let hero of (superheros | async) | filter: publisher: 'publisher'"
+               class="animated fadeIn fast">
+      <ion-label>
+        <h3>{{ hero.superhero }} <small> {{ hero.alter_ego }} </small></h3>
+        <p>{{ hero.first_appearance }}</p>
+      </ion-label>
+      <ion-label slot="end" class="ion-text-right">
+        {{ hero.publisher }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

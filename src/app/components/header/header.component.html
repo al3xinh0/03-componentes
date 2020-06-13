@@ -1,0 +1,18 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <!-- Acción a la izquierda -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" Text="Regresar"></ion-back-button>
+    </ion-buttons>
+
+    <!-- Título -->
+    <ion-title>{{ title }}</ion-title>
+
+    <!-- Avatar a la derecha -->
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <img [src]="avatar || '/assets/stan-lee-blank.jpg'">
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
